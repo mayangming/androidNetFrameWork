@@ -26,15 +26,11 @@ class LoginViewModel(
             try {
                 when(val result = loginRepository.login()){
                     is HttpResult.Success -> {
-                        viewModelScope.launch(context = Dispatchers.Main) {
-                            _loginResult.value = result.data!!
-                            _uiStatus.value = 1
-                        }
+                       _loginResult.postValue(result.data!!)
+                       _uiStatus.postValue(1)
                     }
                     is HttpResult.Error -> {
-                        viewModelScope.launch(context = Dispatchers.Main) {
-                            _uiStatus.value = 0
-                        }
+                       _uiStatus.postValue(0)
                     }
                 }
             }catch (e: Exception){
