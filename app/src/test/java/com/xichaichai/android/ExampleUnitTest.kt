@@ -1,5 +1,7 @@
 package com.xichaichai.android
 
+import com.xichaichai.android.common.manager.RetrofitManager
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -12,6 +14,12 @@ import org.junit.Assert.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+//        assertEquals(4, 2 + 2)
+//        val testApi = RetrofitManager.create(TestApi::class.java)
+//        runBlocking {
+//            val testBaidu = testApi.testBaidu()
+//
+//            println("YM----->:${testBaidu}")
+//        }
     }
 }
