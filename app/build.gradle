@@ -71,6 +71,6 @@ dependencies {
     implementation "org.paradisehell.convex:convex:1.0.0"
 
 
-//    implementation 'com.github.getActivity:XXPermissions:11.6'
+    implementation 'com.github.getActivity:XXPermissions:11.6'
 
 }
