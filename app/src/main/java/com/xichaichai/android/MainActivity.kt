@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.xichaichai.android.databinding.ActivityMainBinding
 import com.xichaichai.android.login.http.LoginRepository
 import com.xichaichai.android.login.viewmodel.LoginViewModel
 import com.xichaichai.android.login.viewmodel.LoginViewModelFactory
@@ -12,9 +13,12 @@ class MainActivity : AppCompatActivity() {
     private val loginViewModel: LoginViewModel by viewModels{
         LoginViewModelFactory(LoginRepository())
     }
+    private val dataBinding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(dataBinding.root)
         loginViewModel.loginResult.observe(this){
             println("YM----->$it")
         }
